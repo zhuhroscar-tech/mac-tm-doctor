@@ -7,14 +7,13 @@ name = "mac-tm-doctor"
 version = "0.1.0"
 description = "A tiny macOS helper that diagnoses Time Machine backup blockers on attached volumes."
 readme = "README.md"
-license = {text = "MIT"}
+license = "MIT"
 requires-python = ">=3.8"
 authors = [{name = "zhuhroscar-tech", email = "noreply@example.com"}]
 dependencies = []
 classifiers = [
     "Environment :: MacOS X",
     "Intended Audience :: End Users/Desktop",
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Operating System :: MacOS :: MacOS X",
 ]
