@@ -1,7 +1,26 @@
 # mac-tm-doctor
 
+[![Release](https://img.shields.io/github/v/release/zhuhroscar-tech/mac-tm-doctor?include_prereleases&label=release)](https://github.com/zhuhroscar-tech/mac-tm-doctor/releases/tag/v0.1.3)
+
 A small macOS CLI utility to diagnose why a Time Machine destination or other
 external volume is blocked from unmount/eject.
+
+## Simple explanation
+
+When a Time Machine backup drive refuses to eject, this tool figures out why —
+whether a backup is still running, which process is holding the drive open,
+and whether it's actually registered as a Time Machine destination — and
+explains it in plain language. It reads system state only; it does not force
+anything to quit or unmount unless you explicitly ask it to stop a backup.
+
+```text
+$ mac-tm-doctor /Volumes/TimeMachine
+Backup status: running (phase: copying)
+Blockers: backupd (pid 205), mds_stores (pid 88)
+Time Machine destination: yes (registered)
+Suggestion: wait for the backup to finish, or run with --stop-backup to
+request Time Machine stop early.
+```
 
 ## Why this exists
 
