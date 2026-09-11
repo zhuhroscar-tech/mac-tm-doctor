@@ -13,13 +13,22 @@ and whether it's actually registered as a Time Machine destination — and
 explains it in plain language. It reads system state only; it does not force
 anything to quit or unmount unless you explicitly ask it to stop a backup.
 
+![mac-tm-doctor example output](docs/images/example-output.png)
+
 ```text
-$ mac-tm-doctor /Volumes/TimeMachine
-Backup status: running (phase: copying)
-Blockers: backupd (pid 205), mds_stores (pid 88)
-Time Machine destination: yes (registered)
-Suggestion: wait for the backup to finish, or run with --stop-backup to
-request Time Machine stop early.
+$ mac-tm-doctor /tmp
+mac-tm-doctor report for: /private/tmp
+------------------------------------------------------------
+Time Machine running: False
+Current TM phase: None
+Target is Time Machine destination: False
+8 blocker(s) detected:
+  - bash (pid 26579, user oscar): current working directory [cwd]
+    path: /private/tmp
+  ...
+
+Suggested next steps:
+- Open Activity Monitor and inspect PIDs: 566, 26579, 26610, 26615, 26618
 ```
 
 ## Why this exists
